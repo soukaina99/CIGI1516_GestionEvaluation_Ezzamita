@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/SQLI</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">doha2004</property>
+		<property name="show_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
+		
+		<mapping class="org.sqli.entities.Admin" />
+		<mapping class="org.sqli.entities.BAP" />
+	    <mapping class="org.sqli.entities.BIP" />
+		<mapping class="org.sqli.entities.Collaborateur" />
+		<mapping class="org.sqli.entities.Encadrant" />
+		<mapping class="org.sqli.entities.ManagerRH" />
+		<mapping class="org.sqli.entities.ObjectifBAP" />
+		<mapping class="org.sqli.entities.ObjectifBIP" />
+		<mapping class="org.sqli.entities.Privilege" />
+		<mapping class="org.sqli.entities.Projet" />
+		<mapping class="org.sqli.entities.Qualification" />
+		<mapping class="org.sqli.entities.Salarie" />
+		<mapping class="org.sqli.entities.Theme" />
+		
+	</session-factory>
+</hibernate-configuration>

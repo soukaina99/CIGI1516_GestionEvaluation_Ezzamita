@@ -25,6 +25,7 @@ app.config([ '$routeProvider', function($routeProvider) {
 
 app.controller("ProjectListController", function($scope, $http, $routeParams) {
 	$scope.projects ={};
+	$scope.project={};
 		$scope.$on('$viewContentLoaded',function() {
 			$http({
 					url : 'http://localhost:8080/sqli_backend1/webresources/projects/',
@@ -40,6 +41,7 @@ app.controller("ProjectListController", function($scope, $http, $routeParams) {
 	$scope.project=arg;
 		
 		$('#editModal').modal('show');
+	
 	}
 
 	$scope.remove=function(id){
@@ -67,17 +69,25 @@ app.controller("ProjectListController", function($scope, $http, $routeParams) {
 	}
 	
 $scope.submitEdit=function(project){
+
+var debut=new Date(+document.getElementById("debut").value);
+var fin=new Date(+document.getElementById("fin").value);
+var d1=debut.toISOString().split("T");
+var d2=fin.toISOString().split("T");
 	$http({url : 'http://localhost:8080/sqli_backend1/webresources/projects/',
 		method : 'PUT',
-		params:{'idProjet':project.idProjet,
-			     'debut':$scope.debut,
-			     'fin':$scope.fin,
-			     'nomProjet':$scope.nomProjet,
-			     'description':$scope.description
-			   }
-			
+		data:{'idProjet':project.idProjet,
+			'debut':d1[0], 
+			'fin':d2[0],
+			'nomProjet':project.nomProjet,
+			'description':project.description
+			   },  
+	   headers: {'Content-Type': 'application/json' },
+	   dataType: 'json'		
 	}).success(function(){
-		alert("done")
+		//$('#editModal').modal('hide');
+		
+		alert(d1[0])
 	});
 }
 	

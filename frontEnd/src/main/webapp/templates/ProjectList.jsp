@@ -25,8 +25,8 @@
 			<tr ng-repeat="project in projects">
 
 				<td><a href="#/project/{{project.idProjet}}">{{project.nomProjet}}</a></td>
-				<td>{{project.debut | date:'MM/dd/yyyy'}}</td>
-				<td>{{project.fin | date:'MM/dd/yyyy'}}</td>
+				<td>{{project.debut | date:'yyyy-MM-dd'}}</td>
+				<td>{{project.fin | date:'yyyy-MM-dd'}}</td>
 				<td>
 					<button class="btn btn-success" ng-click="edit(project)">
 						<span class="glyphicon glyphicon-edit"></span>
@@ -64,7 +64,7 @@
 				<div class="control-group">
 						<div class="controls">
 							<div class='input-group date' id='datetimepicker3'>
-								<input type='text' class="form-control"  ng-model="project.debut "/> <span
+								<input  class="form-control"  ng-model="project.debut"  id="debut"/> <span
 									class="input-group-addon"> <span
 									class="glyphicon glyphicon-calendar"></span>
 								</span>
@@ -80,7 +80,7 @@
 
 						<div class="controls">
 							<div class='input-group date' id='datetimepicker4'>
-								<input type='text' class="form-control" ng-model="project.fin"/> <span
+								<input  class="form-control" ng-model="project.fin " id="fin"/> <span
 									class="input-group-addon"> <span
 									class="glyphicon glyphicon-calendar"></span>
 								</span>
